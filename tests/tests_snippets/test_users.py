@@ -8,7 +8,8 @@ class TestUsers():
     @pytest.mark.django_db
     def test_user_create(self):
         User.objects.create_user('poe', 'poe@thecat.com', 'poepass')
-        assert User.objects.count() == 1
+        User.objects.create_user('poe2', 'poe2@thecat.com', 'poepass')
+        assert User.objects.count() == 2
 
     @pytest.mark.django_db
     def test_user_detail(self, client):
